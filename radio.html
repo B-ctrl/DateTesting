@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Radio Buttons</h2>
+<p>The <strong>input type="radio"</strong> defines a radio button:</p>
+
+<form>
+  <input type="radio" name="gender" value="male" id="gender" checked> Male<br>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other<br><br>
+  <button onclick="myFunction()">Try it</button>
+</form> 
+
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+      var x = document.getElementsById("gender").value;
+      document.getElementById("demo").innerHTML = x;
+    }
+</script>
+
+</body>
+</html>
