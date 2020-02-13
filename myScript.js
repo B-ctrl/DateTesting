@@ -43,11 +43,11 @@ var eventDays = [];
             day5 = invoiceDate.toString();
             console.log(" Day 5: " + day5);
             
-            console.log(" day 1 event date after 3 rounds: " + day1);
-            console.log(" day 2 event date after 3 rounds: " + day2);
-            console.log(" day 3 event date after 3 rounds: " + day3);
-            console.log(" day 4 event date after 3 rounds: " + day4);
-            console.log(" day 5 event date after 3 rounds: " + day5);
+            console.log(" day 1 event date after 5 rounds: " + day1);
+            console.log(" day 2 event date after 5 rounds: " + day2);
+            console.log(" day 3 event date after 5 rounds: " + day3);
+            console.log(" day 4 event date after 5 rounds: " + day4);
+            console.log(" day 5 event date after 5 rounds: " + day5);
 
             eventDays = [day1, day2, day3, day4, day5];
             console.log("event days array " + eventDays);
