@@ -13,11 +13,12 @@ var day3Formatted = "2020-03-01";   // hardcoded for now
 var day4Formatted = "2020-03-02";   // hardcoded for now
 var day5Formatted = "2020-03-03";   // hardcoded for now
 var latlon = "38.8951,-77.0364";    // hardcoded for now
-var Day1Events = {};
-var Day2Events = {};
-var Day3Events = {};
-var Day4Events = {};
-var Day5Events = {};
+var Day1Events = null;
+var Day2Events = null;
+var Day3Events = null;
+var Day4Events = null;
+var Day5Events = null;
+var myVar = 0;
 
 
 document.querySelector("#submitRequest").addEventListener("click", function() {
@@ -51,14 +52,63 @@ document.querySelector("#submitRequest").addEventListener("click", function() {
             console.log("event days array " + eventDays);
     }
 
-    getDay1Events();
-    getDay2Events();
-    getDay3Events();
-    getDay4Events();
-    getDay5Events();
-  
+    
 
+    
+      myVar = setInterval(checkEventStatus, 1000); 
+
+
+    
 });
+
+
+function checkEventStatus(){
+  if(Day1Events == null || Day2Events == null || Day3Events == null || Day4Events == null || Day5Events == null){
+    getAllEvents()
+  }
+  else{
+    myStopFunction()
+  }
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+  console.log(Day1Events);
+  console.log(Day2Events);
+  console.log(Day3Events);
+  console.log(Day4Events);
+  console.log(Day5Events);
+}
+
+
+function getAllEvents() {
+  if(Day1Events==null){
+    getDay1Events();
+  }
+
+  if(Day2Events==null){
+    getDay2Events();
+  }
+
+  if(Day3Events==null){
+    getDay3Events();
+  }
+
+  if(Day4Events==null){
+    getDay4Events();
+  }
+
+  if(Day5Events==null){
+    getDay5Events();
+  }
+
+  console.log(Day1Events);
+  console.log(Day2Events);
+  console.log(Day3Events);
+  console.log(Day4Events);
+  console.log(Day5Events);
+
+}
 
 // get events for day 1 and store in Day1Events
 function getDay1Events() {
