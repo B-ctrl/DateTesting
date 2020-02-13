@@ -10,8 +10,8 @@ var eventDays = [];
 var day1Formatted = "2020-02-28";   // hardcoded for now
 var day2Formatted = "2020-02-29";   // hardcoded for now
 var day3Formatted = "2020-03-01";   // hardcoded for now
-var day4Formatted = "2020-02-02";   // hardcoded for now
-var day5Formatted = "2020-02-03";   // hardcoded for now
+var day4Formatted = "2020-03-02";   // hardcoded for now
+var day5Formatted = "2020-03-03";   // hardcoded for now
 var latlon = "38.8951,-77.0364";    // hardcoded for now
 var Day1Events = {};
 var Day2Events = {};
@@ -51,47 +51,101 @@ document.querySelector("#submitRequest").addEventListener("click", function() {
             console.log("event days array " + eventDays);
     }
 
-    showPosition();
+    getDay1Events();
+    getDay2Events();
+    getDay3Events();
+    getDay4Events();
+    getDay5Events();
+  
 
 });
 
-function showPosition() {
+// get events for day 1 and store in Day1Events
+function getDay1Events() {
+      $.ajax({
+          type: "GET",
+          timeout: 3000,
+          url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day1Formatted + "T00:00:00," + day1Formatted + "T23:59:59&geoPoint=" + latlon,
+          async: true,
+          dataType: "json",
+          success: function (Day1JSON) {
+            Day1Events = Day1JSON;
+            },
+          error: function (xhr, status, err) {
+            console.log(err);
+            }
+      });
+}
 
-  // get events for day 1 and store in Day1Events
-    $.ajax({
+// get events for day 2 and store in Day2Events
+function getDay2Events() {
+      $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day1Formatted + "T00:00:00," + day1Formatted + "T23:59:59&geoPoint=" + latlon,
+        timeout: 3000,
+        url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day2Formatted + "T00:00:00," + day2Formatted + "T23:59:59&geoPoint=" + latlon,
         async: true,
         dataType: "json",
-        success: function (Day1JSON) {
-          Day1Events = Day1JSON;
+        success: function (Day2JSON) {
+          Day2Events = Day2JSON;
           },
         error: function (xhr, status, err) {
           console.log(err);
           }
       });
-              
-  // get events for day 2 and store in Day2Events
-    $.ajax({
-      type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day2Formatted + "T00:00:00," + day2Formatted + "T23:59:59&geoPoint=" + latlon,
-      async: true,
-      dataType: "json",
-      success: function (Day2JSON) {
-        Day2Events = Day2JSON;
-        },
-      error: function (xhr, status, err) {
-        console.log(err);
-        }
-    });
-            
-
-
-  console.log("Day 1 Events: ");
-  console.log(Day1Events);
-  console.log("Day 2 Events: ")
-  console.log(Day2Events);   
-
 }
+
+// get events for day 3 and store in Day3Events
+function getDay3Events() {
+      $.ajax({
+        type: "GET",
+        timeout: 3000,
+        url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day3Formatted + "T00:00:00," + day3Formatted + "T23:59:59&geoPoint=" + latlon,
+        async: true,
+        dataType: "json",
+        success: function (Day3JSON) {
+          Day3Events = Day3JSON;
+          },
+        error: function (xhr, status, err) {
+          console.log(err);
+          }
+      });  
+}
+
+// get events for day 4 and store in Day4Events
+function getDay4Events() {
+      $.ajax({
+        type: "GET",
+        timeout: 3000,
+        url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day4Formatted + "T00:00:00," + day4Formatted + "T23:59:59&geoPoint=" + latlon,
+        async: true,
+        dataType: "json",
+        success: function (Day4JSON) {
+          Day4Events = Day4JSON;
+          },
+        error: function (xhr, status, err) {
+          console.log(err);
+          }
+      });  
+}
+
+// get events for day 5 and store in Day5Events
+function getDay5Events() {
+      $.ajax({
+        type: "GET",
+        timeout: 3000,
+        url: "https://app.ticketmaster.com/discovery/v2/events?apikey=azaUxsQPC2NvNoM7ZPpJOHJ0xw2N0iqd&radius=10&unit=miles&locale=*&size=5&countryCode=US&localStartDateTime=" + day5Formatted + "T00:00:00," + day5Formatted + "T23:59:59&geoPoint=" + latlon,
+        async: true,
+        dataType: "json",
+        success: function (Day5JSON) {
+          Day5Events = Day5JSON;
+          },
+        error: function (xhr, status, err) {
+          console.log(err);
+          }
+      });  
+}
+
+
+
 
 
